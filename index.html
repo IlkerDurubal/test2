@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenme İçerikleri Örnekleri</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #F0F4F7;
+            color: #484E65;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 90%; /* Makes it responsive */
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px; /* Optional: Add some rounding for aesthetics */
+        }
+
+        h1 {
+            text-align: center;
+            color: #2460A2;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 8px;
+            border: 2px solid #F27774;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #484E65;
+            background-color: white;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23F27774"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 14px;
+            appearance: none;
+            cursor: pointer;
+            width: auto;
+        }
+
+        select option {
+            font-size: 13px;
+            font-weight: normal;
+            color: #484E65;
+        }
+
+        select option:first-child {
+            color: #F27774;
+            font-weight: bold;
+        }
+
+        select:focus {
+            border-color: #2460A2;
+            outline: none;
+        }
+
+        .results {
+            margin-top: 20px;
+            overflow-y: auto;
+            max-height: 60vh; /* Adjust height relative to the screen */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table thead {
+            background-color: #2460A2;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        table tbody td a {
+            color: #11A5D2;
+            text-decoration: none;
+        }
+
+        table tbody td a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Öğrenme İçerikleri Örnekleri</h1>
+        <div class="filters">
+            <select id="dersler" style="flex: 3; min-width: 200px;">
+                <option value="">Dersler</option>
+                <option value="Fen Bilimleri">Fen Bilimleri</option><option value="Görsel Sanatlar">Görsel Sanatlar</option><option value="İngilizce">İngilizce</option><option value="Matematik">Matematik</option><option value="Okulöncesi">Okulöncesi</option><option value="Sınıf Eğitimi">Sınıf Eğitimi</option><option value="Sosyal Bilimler">Sosyal Bilimler</option><option value="Türkçe - Türk Dili ve Edebiyatı">Türkçe - Türk Dili ve Edebiyatı</option>
+            </select>
+            <select id="seviyeler" style="flex: 2; min-width: 150px;">
+                <option value="">Seviye</option>
+                <option value="Lise">Lise</option><option value="Ortaokul">Ortaokul</option><option value="60-72 Ay">60-72 Ay</option><option value="İlkokul">İlkokul</option>
+            </select>
+            <select id="dijital_araclar" style="flex: 5; min-width: 250px;">
+                <option value="">Dijital Araç</option>
+                <option value="Kimya ve Moleküler 3B Modelleme">Kimya ve Moleküler 3B Modelleme</option><option value="Animasyon, 3B ve Multimedya İçerik">Animasyon, 3B ve Multimedya İçerik</option><option value="Dijital Pano">Dijital Pano</option><option value="Etkileşimli Ölçme Değerlendirme">Etkileşimli Ölçme Değerlendirme</option><option value="Grafik, Çizelge, Takvim">Grafik, Çizelge, Takvim</option><option value="Infografik ve Görsel İçerik">Infografik ve Görsel İçerik</option><option value="Zihin ve Kavram Haritalama ile Akış Şeması">Zihin ve Kavram Haritalama ile Akış Şeması</option><option value="Video, Ses ve Metin">Video, Ses ve Metin</option><option value="Dijital Kitap ve Hikaye">Dijital Kitap ve Hikaye</option><option value="Poster ve Afiş">Poster ve Afiş</option><option value="Etkileşimli Sunum">Etkileşimli Sunum</option><option value="Dijital Çizim ve Boyama">Dijital Çizim ve Boyama</option><option value="Yazım ve Dilbilgisi">Yazım ve Dilbilgisi</option><option value="Dijital Portfolyo">Dijital Portfolyo</option><option value="Eğitsel Oyun ve Etkileşimli İçerik">Eğitsel Oyun ve Etkileşimli İçerik</option><option value="Grafik ve Matematiksel Modelleme">Grafik ve Matematiksel Modelleme</option><option value="Çevrimiçi İstatistik">Çevrimiçi İstatistik</option><option value="Grafik Tasarım ve Görsel İçerik">Grafik Tasarım ve Görsel İçerik</option><option value="Dinamik Geometri Yazılımı (DGY)">Dinamik Geometri Yazılımı (DGY)</option><option value="Etkileşimli İçerik">Etkileşimli İçerik</option><option value="Görselleştirme ve Sanal Tur">Görselleştirme ve Sanal Tur</option><option value="Harita ve Coğrafi Veri">Harita ve Coğrafi Veri</option><option value="Kavram Haritası ve Ağı">Kavram Haritası ve Ağı</option>
+            </select>
+        </div>
+        <div class="results">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ders</th>
+                        <th>Seviye</th>
+                        <th>Dijital Araç</th>
+                        <th>Örnek</th>
+                    </tr>
+                </thead>
+                <tbody id="results-body">
+                    <tr>
+                        <td colspan="4">Farklı dijital araçlarla hazırlanmış içerik örneklerini incelemek için lütfen üstteki kutulara tıklayarak açılan listeden seçim yapın ve ardından Örnek başlığı altındaki bağlantıya tıklayın.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const data = [{'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Kimya ve Moleküler 3B Modelleme', 'Örnek': 'Link 1'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Kimya ve Moleküler 3B Modelleme', 'Örnek': 'Link 2'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 3'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 4'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 5'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 6'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 7'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 8'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 9'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 10'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 11'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 12'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 13'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 14'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 15'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 16'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 17'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 18'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 19'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 20'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 21'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 22'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 23'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 24'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 25'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 26'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 27'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 28'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 29'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 30'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 31'}, {'Dersler': 'Fen Bilimleri', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 32'}, {'Dersler': 'Görsel Sanatlar', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Çizim ve Boyama', 'Örnek': 'Link 33'}, {'Dersler': 'Görsel Sanatlar', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 34'}, {'Dersler': 'Görsel Sanatlar', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 35'}, {'Dersler': 'Görsel Sanatlar', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 36'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 37'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 38'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Yazım ve Dilbilgisi', 'Örnek': 'Link 39'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Yazım ve Dilbilgisi', 'Örnek': 'Link 40'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 41'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 42'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Portfolyo', 'Örnek': 'Link 43'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 44'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 45'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 46'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 47'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 48'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 49'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 50'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 51'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 52'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 53'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 54'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 55'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 56'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 57'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 58'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 59'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 60'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 61'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 62'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 63'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 64'}, {'Dersler': 'İngilizce', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 65'}, {'Dersler': 'İngilizce', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 66'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik ve Matematiksel Modelleme', 'Örnek': 'Link 67'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik ve Matematiksel Modelleme', 'Örnek': 'Link 68'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Çevrimiçi İstatistik', 'Örnek': 'Link 69'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Çevrimiçi İstatistik', 'Örnek': 'Link 70'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 71'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 72'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 73'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 74'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 75'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 76'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik Tasarım ve Görsel İçerik', 'Örnek': 'Link 77'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik Tasarım ve Görsel İçerik', 'Örnek': 'Link 78'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Grafik Tasarım ve Görsel İçerik', 'Örnek': 'Link 79'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Grafik Tasarım ve Görsel İçerik', 'Örnek': 'Link 80'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Dinamik Geometri Yazılımı (DGY)', 'Örnek': 'Link 81'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Dinamik Geometri Yazılımı (DGY)', 'Örnek': 'Link 82'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dinamik Geometri Yazılımı (DGY)', 'Örnek': 'Link 83'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Dinamik Geometri Yazılımı (DGY)', 'Örnek': 'Link 84'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 85'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 86'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 87'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 88'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 89'}, {'Dersler': 'Matematik', 'Seviye': 'Lise', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 90'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 91'}, {'Dersler': 'Matematik', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 92'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 93'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 94'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 95'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 96'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Dijital Çizim ve Boyama', 'Örnek': 'Link 97'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 98'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 99'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 100'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Görselleştirme ve Sanal Tur', 'Örnek': 'Link 101'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 102'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 103'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 104'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 105'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 106'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 107'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 108'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 109'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 110'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 111'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 112'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Dijital Çizim ve Boyama', 'Örnek': 'Link 113'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 114'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 115'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 116'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 117'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 118'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 119'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 120'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 121'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 122'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 123'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 124'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 125'}, {'Dersler': 'Okulöncesi', 'Seviye': '60-72 Ay', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 126'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 127'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 128'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 129'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 130'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 131'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 132'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 133'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 134'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 135'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 136'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 137'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 138'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 139'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 140'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 141'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 142'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 143'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 144'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 145'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 146'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 147'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 148'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 149'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 150'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 151'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 152'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 153'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 154'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 155'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 156'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Harita ve Coğrafi Veri', 'Örnek': 'Link 157'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 158'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 159'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 160'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Kavram Haritası ve Ağı', 'Örnek': 'Link 161'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Kavram Haritası ve Ağı', 'Örnek': 'Link 162'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 163'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 164'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 165'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 166'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 167'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 168'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 169'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 170'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 171'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 172'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 173'}, {'Dersler': 'Sınıf Eğitimi', 'Seviye': 'İlkokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 174'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 175'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 176'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 177'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Animasyon, 3B ve Multimedya İçerik', 'Örnek': 'Link 178'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 179'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 180'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 181'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 182'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Portfolyo', 'Örnek': 'Link 183'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Portfolyo', 'Örnek': 'Link 184'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 185'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli İçerik', 'Örnek': 'Link 186'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 187'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Ölçme Değerlendirme', 'Örnek': 'Link 188'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 189'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Infografik ve Görsel İçerik', 'Örnek': 'Link 190'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 191'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 192'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 193'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 194'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 195'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 196'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 197'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 198'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 199'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Grafik, Çizelge, Takvim', 'Örnek': 'Link 200'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 201'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 202'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 203'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 204'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 205'}, {'Dersler': 'Sosyal Bilimler', 'Seviye': 'Lise', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 206'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Lise', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 207'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 208'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Lise', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 209'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 210'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Lise', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 211'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Lise', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 212'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 213'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Kitap ve Hikaye', 'Örnek': 'Link 214'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 215'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Lise', 'Dijital Araç': 'Dijital Pano', 'Örnek': 'Link 216'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Poster ve Afiş', 'Örnek': 'Link 217'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 218'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Video, Ses ve Metin', 'Örnek': 'Link 219'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Eğitsel Oyun ve Etkileşimli İçerik', 'Örnek': 'Link 220'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Etkileşimli Sunum', 'Örnek': 'Link 221'}, {'Dersler': 'Türkçe - Türk Dili ve Edebiyatı', 'Seviye': 'Ortaokul', 'Dijital Araç': 'Zihin ve Kavram Haritalama ile Akış Şeması', 'Örnek': 'Link 222'}];
+
+        document.querySelectorAll('select').forEach(select => {
+            select.addEventListener('change', filterResults);
+        });
+
+        function filterResults() {
+            const selectedDersler = document.getElementById('dersler').value;
+            const selectedSeviyeler = document.getElementById('seviyeler').value;
+            const selectedDijitalAraclar = document.getElementById('dijital_araclar').value;
+
+            const filteredData = data.filter(item => 
+                (selectedDersler === "" || item.Dersler === selectedDersler) &&
+                (selectedSeviyeler === "" || item.Seviye === selectedSeviyeler) &&
+                (selectedDijitalAraclar === "" || item['Dijital Araç'] === selectedDijitalAraclar)
+            );
+
+            const resultsBody = document.getElementById('results-body');
+            resultsBody.innerHTML = "";
+
+            if (filteredData.length > 0) {
+                filteredData.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.Dersler}</td>
+                        <td>${item.Seviye}</td>
+                        <td>${item['Dijital Araç']}</td>
+                        <td><a href="#">${item['Örnek']}</a></td>
+                    `;
+                    resultsBody.appendChild(row);
+                });
+            } else {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td colspan="4">Eşleşen sonuç bulunamadı.</td>`;
+                resultsBody.appendChild(row);
+            }
+        }
+    </script>
+</body>
+</html>
